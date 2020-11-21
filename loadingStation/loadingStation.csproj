@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{256B2054-AC91-40ED-A9E2-ABF650FF179A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>loadingStation</RootNamespace>
+    <AssemblyName>loadingStation</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BeetleX">
+      <HintPath>..\..\..\SmartProject\Core\bin\Release\BeetleX.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SmartProject\Core\bin\Release\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyModbus">
+      <HintPath>..\..\..\Documents\net-package\EasyModbus.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Transitions">
+      <HintPath>..\..\..\Documents\net-package\Transitions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Components\progressvertical.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\Components\RoundButtons.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Base\Components\RoundButtons.Designer.cs">
+      <DependentUpon>RoundButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Configuration\Config\CoreLS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>CoreLS.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Configuration\Config\Logs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Logs.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Configuration\Config\Security.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Security.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Configuration\Jsonconfig.cs" />
+    <Compile Include="Base\Configuration\Logs.cs" />
+    <Compile Include="Base\Connection\Database\Database.cs" />
+    <Compile Include="Base\Connection\Database\DB_SFDB.cs" />
+    <Compile Include="Base\Connection\Devices\Smartdevice\ModbusAichi.cs" />
+    <Compile Include="Base\Connection\Socket\Server.cs" />
+    <Compile Include="Base\Function\Actions.cs" />
+    <Compile Include="Base\Function\Arguments.cs" />
+    <Compile Include="Base\Function\Conversion.cs" />
+    <Compile Include="Base\Function\GlobalProperties.cs" />
+    <Compile Include="Base\Log\Error.cs" />
+    <Compile Include="Base\Connection\Devices\Smartdevice\ModbusInput.cs" />
+    <Compile Include="Base\Connection\Devices\Smartdevice\ModbusOutput.cs" />
+    <Compile Include="GUI\Act\Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Act\Information.Designer.cs">
+      <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\Calibration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\Calibration.Designer.cs">
+      <DependentUpon>Calibration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\FillingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\FillingDetails.Designer.cs">
+      <DependentUpon>FillingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\ValueChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\ValueChange.Designer.cs">
+      <DependentUpon>ValueChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Main\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Act\Emergency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Act\Emergency.Designer.cs">
+      <DependentUpon>Emergency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\AppSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\AppSetting.Designer.cs">
+      <DependentUpon>AppSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Main\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Act\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Act\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\LSSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\LSSetting.Designer.cs">
+      <DependentUpon>LSSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Act\ReadyMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Act\ReadyMaintenance.Designer.cs">
+      <DependentUpon>ReadyMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\SecuritySetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\SecuritySetting.Designer.cs">
+      <DependentUpon>SecuritySetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\Smartdevices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\Smartdevices.Designer.cs">
+      <DependentUpon>Smartdevices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Main\Tasklist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main\Tasklist.Designer.cs">
+      <DependentUpon>Tasklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Main\Changedrum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main\Changedrum.Designer.cs">
+      <DependentUpon>Changedrum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Settings\ValueChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Settings\ValueChecker.Designer.cs">
+      <DependentUpon>ValueChecker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Act\Information.resx">
+      <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\FillingDetails.resx">
+      <DependentUpon>FillingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\ValueChange.resx">
+      <DependentUpon>ValueChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Main\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Act\Emergency.resx">
+      <DependentUpon>Emergency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\AppSetting.resx">
+      <DependentUpon>AppSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Main\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Act\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\LSSetting.resx">
+      <DependentUpon>LSSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Act\ReadyMaintenance.resx">
+      <DependentUpon>ReadyMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\SecuritySetting.resx">
+      <DependentUpon>SecuritySetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\Smartdevices.resx">
+      <DependentUpon>Smartdevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Main\Tasklist.resx">
+      <DependentUpon>Tasklist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Main\Changedrum.resx">
+      <DependentUpon>Changedrum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Settings\ValueChecker.resx">
+      <DependentUpon>ValueChecker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Base\Configuration\Config\CoreLS.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>CoreLS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Base\Configuration\Config\Logs.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Logs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Base\Configuration\Config\Security.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Security.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dgv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagramIllustration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagramIllustration1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\overviewInner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dgvBot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dgvTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\botLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\botRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\topLeft1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgTaskList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stepPrev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stepNext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drumInner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newDrum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-011.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-021.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-031.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-041.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-051.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-061.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-071.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-081.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-091.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-101.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-assets-121.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\systemInner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disk-1.1s-54px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RollingLoader3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RollingLoader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\creopped.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RollingLoader1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DiskLoader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\propelerstop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NEXT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PREV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CD_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagram1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rolling-1.4s-96px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ball-1s-64px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ball-0.9s-64px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spinner-1s-64px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagramillustration2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
